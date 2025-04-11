@@ -1,0 +1,7 @@
+
+FROM python:3.11-slim
+WORKDIR /app
+COPY . /app
+COPY ../data /app/data
+RUN pip install fastapi uvicorn python-jose python-multipart
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
